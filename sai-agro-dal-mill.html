@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Agro Products and Dall Mill — Hingoli, Maharashtra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241608;
+    --ink-soft:#5a4732;
+    --husk:#F1E6CB;
+    --husk-deep:#E7D8B2;
+    --paper:#FBF6E9;
+    --toor:#E2A33B;
+    --masoor:#B14A2C;
+    --moong:#6B7A3A;
+    --soil:#2B1B12;
+    --soil-deep:#1B0F08;
+    --on-soil:#F1E6CB;
+    --on-soil-soft:#C9B896;
+    --line: rgba(36,22,8,0.14);
+    --line-on-soil: rgba(241,230,203,0.16);
+    --shadow: 0 10px 24px rgba(27,15,8,0.16);
+  }
+
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --husk:#20140C;
+      --husk-deep:#170D07;
+      --paper:#26170D;
+      --ink:#F1E6CB;
+      --ink-soft:#C9B896;
+      --line: rgba(241,230,203,0.14);
+    }
+  }
+  :root[data-theme="dark"]{
+    --husk:#20140C;
+    --husk-deep:#170D07;
+    --paper:#26170D;
+    --ink:#F1E6CB;
+    --ink-soft:#C9B896;
+    --line: rgba(241,230,203,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--husk);
+    color:var(--ink);
+    font-family:"Public Sans", -apple-system, sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{
+    max-width:1160px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,56px);
+  }
+  h1,h2,h3{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    line-height:1.08;
+    margin:0 0 .5em;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0 0 1em; max-width:62ch;}
+  .eyebrow{
+    font-size:.8rem;
+    color: var(--ink-soft);
+    margin:0 0 10px;
+  }
+  section{position:relative;}
+  ::selection{background:var(--toor); color:var(--soil-deep);}
+  :focus-visible{outline:3px solid var(--masoor); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:color-mix(in srgb, var(--husk) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px clamp(20px,5vw,56px);
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:"Fraunces", serif; font-weight:600; font-size:1.15rem;
+    text-decoration:none; color:var(--ink);
+  }
+  .brand-mark{width:34px; height:34px; flex:none;}
+  .navlinks{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    text-decoration:none; font-size:.95rem; color:var(--ink-soft);
+    padding:6px 2px; border-bottom:2px solid transparent;
+  }
+  .navlinks a:hover{color:var(--ink); border-color:var(--toor);}
+  .nav-cta{
+    display:flex; align-items:center; gap:12px;
+  }
+  .navtoggle{display:none;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:3px;
+    font-weight:600; font-size:.92rem;
+    text-decoration:none; border:1.5px solid transparent;
+    cursor:pointer; white-space:nowrap;
+    font-family:"Public Sans", sans-serif;
+  }
+  .btn-primary{ background:var(--moong); color:#F8F3E4; }
+  .btn-primary:hover{ background:#5a6830; }
+  .btn-ghost{ border-color: var(--ink); color:var(--ink); background:transparent; }
+  .btn-ghost:hover{ background:var(--ink); color:var(--husk); }
+  .btn-outline-soil{ border-color:var(--on-soil-soft); color:var(--on-soil); }
+  .btn-outline-soil:hover{ background:var(--on-soil); color:var(--soil-deep); }
+
+  @media (max-width:820px){
+    .navlinks{
+      position:fixed; inset:64px 0 0 0; background:var(--husk);
+      flex-direction:column; padding:28px clamp(20px,5vw,56px);
+      gap:6px; transform:translateY(-8px); opacity:0; pointer-events:none;
+      transition:opacity .18s ease, transform .18s ease;
+      border-top:1px solid var(--line);
+    }
+    .navlinks a{display:block; padding:12px 0; font-size:1.1rem; border-bottom:1px solid var(--line);}
+    body.nav-open .navlinks{transform:translateY(0); opacity:1; pointer-events:auto;}
+    .navtoggle{
+      display:inline-flex; width:38px; height:38px; border:1.5px solid var(--line);
+      border-radius:3px; background:none; align-items:center; justify-content:center; cursor:pointer;
+    }
+    .navtoggle span, .navtoggle span::before, .navtoggle span::after{
+      content:""; display:block; width:18px; height:2px; background:var(--ink); position:relative;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+    .navtoggle span::before{ position:absolute; top:-6px; }
+    .navtoggle span::after{ position:absolute; top:6px; }
+    body.nav-open .navtoggle span{ background:transparent; }
+    body.nav-open .navtoggle span::before{ transform:translateY(6px) rotate(45deg); }
+    body.nav-open .navtoggle span::after{ transform:translateY(-6px) rotate(-45deg); }
+    .nav-cta .btn-ghost{display:none;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:linear-gradient(180deg, var(--soil) 0%, var(--soil-deep) 100%);
+    color:var(--on-soil);
+    padding:clamp(56px,9vw,110px) 0 clamp(64px,10vw,120px);
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem,4.6vw,3.6rem);
+    color:#FBF6E9;
+  }
+  .hero .lede{
+    color:var(--on-soil-soft); font-size:1.08rem; max-width:52ch;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px;}
+  .hero-stats{
+    display:flex; gap:28px; margin-top:44px; flex-wrap:wrap;
+  }
+  .hero-stats div{border-left:2px solid var(--masoor); padding-left:14px;}
+  .hero-stats strong{display:block; font-family:"Fraunces",serif; font-size:1.5rem; color:#FBF6E9;}
+  .hero-stats span{font-size:.85rem; color:var(--on-soil-soft);}
+  .hero-art{ width:100%; height:auto; }
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-art{max-width:340px; margin:0 auto;}
+  }
+
+  /* grain divider */
+  .divider{ height:26px; width:100%; display:block; }
+
+  /* ---------- about ---------- */
+  .about{ padding:clamp(60px,9vw,100px) 0; background:var(--husk); }
+  .about .wrap{ display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; align-items:start; }
+  .about h2{ font-size:clamp(1.7rem,3vw,2.3rem); }
+  .about-figure{
+    background:var(--paper); border:1px solid var(--line); border-radius:4px;
+    padding:28px; box-shadow:var(--shadow);
+  }
+  .about-figure ul{ list-style:none; margin:0; padding:0; display:grid; gap:16px; }
+  .about-figure li{ display:flex; gap:12px; align-items:flex-start; font-size:.94rem; color:var(--ink-soft); }
+  .about-figure li svg{ flex:none; margin-top:2px; }
+  @media (max-width:820px){ .about .wrap{grid-template-columns:1fr;} }
+
+  /* ---------- products ---------- */
+  .products{ padding:clamp(60px,9vw,100px) 0; background:var(--soil); color:var(--on-soil); }
+  .products .section-head{ max-width:640px; margin-bottom:44px; }
+  .products h2{ color:#FBF6E9; }
+  .products .lede{ color:var(--on-soil-soft); }
+  .grain-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:2px;
+    background:var(--line-on-soil); border:1px solid var(--line-on-soil);
+  }
+  .grain-card{
+    background:var(--soil-deep); padding:28px 24px 30px;
+    display:flex; flex-direction:column; gap:14px; min-height:230px;
+  }
+  .grain-swatch{ width:44px; height:44px; border-radius:50%; }
+  .grain-card h3{ font-size:1.15rem; color:#FBF6E9; margin-bottom:2px; }
+  .grain-card p{ color:var(--on-soil-soft); font-size:.9rem; margin:0; }
+  .grain-card .latin{ font-size:.78rem; color:var(--on-soil-soft); opacity:.75; letter-spacing:.02em; }
+
+  /* ---------- process ---------- */
+  .process{ padding:clamp(60px,9vw,100px) 0; background:var(--husk); }
+  .process .section-head{ max-width:620px; margin-bottom:52px; }
+  .timeline{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:0;
+    position:relative;
+  }
+  .timeline::before{
+    content:""; position:absolute; top:19px; left:6%; right:6%; height:2px;
+    background:var(--line);
+  }
+  .tl-step{ position:relative; padding:0 14px 0 0; }
+  .tl-num{
+    width:40px; height:40px; border-radius:50%; background:var(--paper);
+    border:2px solid var(--toor); color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    font-family:"Fraunces",serif; font-weight:600; margin-bottom:18px; position:relative; z-index:2;
+  }
+  .tl-step h3{ font-size:1.02rem; margin-bottom:6px; }
+  .tl-step p{ font-size:.86rem; color:var(--ink-soft); }
+  @media (max-width:900px){
+    .timeline{ grid-template-columns:1fr; gap:28px; }
+    .timeline::before{ left:19px; top:6%; bottom:6%; right:auto; width:2px; height:auto; }
+    .tl-step{ padding-left:56px; }
+    .tl-num{ position:absolute; left:0; top:0; margin-bottom:0; }
+  }
+
+  /* ---------- why ---------- */
+  .why{ padding:clamp(56px,9vw,90px) 0; background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .why .wrap{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+  .why-item h3{ font-size:1rem; margin-bottom:8px; }
+  .why-item p{ font-size:.88rem; color:var(--ink-soft); }
+  .why-item .num{ font-family:"Fraunces",serif; color:var(--masoor); font-size:1.6rem; display:block; margin-bottom:10px; }
+  @media (max-width:900px){ .why .wrap{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .why .wrap{ grid-template-columns:1fr; } }
+
+  /* ---------- contact ---------- */
+  .contact{ padding:clamp(60px,9vw,100px) 0; background:var(--husk); }
+  .contact .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+  .contact-card{ display:grid; gap:22px; }
+  .contact-row{ display:flex; gap:14px; align-items:flex-start; }
+  .contact-row svg{ flex:none; margin-top:3px; }
+  .contact-row h3{ font-size:.98rem; margin:0 0 4px; font-family:"Public Sans",sans-serif; font-weight:600; }
+  .contact-row p{ margin:0; font-size:.92rem; color:var(--ink-soft); }
+  .contact-row a{ text-decoration:underline; text-decoration-color:var(--toor); text-underline-offset:3px; }
+  .map-frame{
+    border:1px solid var(--line); border-radius:4px; overflow:hidden; box-shadow:var(--shadow);
+    aspect-ratio:4/3.2; background:var(--paper);
+  }
+  .map-frame iframe{ width:100%; height:100%; border:0; display:block; }
+
+  .form-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:4px;
+    padding:clamp(24px,3vw,36px); box-shadow:var(--shadow);
+  }
+  .form-card h3{ font-size:1.2rem; margin-bottom:6px; }
+  .form-card .sub{ font-size:.88rem; color:var(--ink-soft); margin-bottom:22px; }
+  label{ display:block; font-size:.82rem; color:var(--ink-soft); margin-bottom:6px; }
+  .field{ margin-bottom:16px; }
+  input, select, textarea{
+    width:100%; padding:11px 12px; border-radius:3px; border:1.5px solid var(--line);
+    background:var(--husk); color:var(--ink); font-family:"Public Sans",sans-serif; font-size:.94rem;
+  }
+  input:focus, select:focus, textarea:focus{ border-color:var(--moong); outline:none; }
+  textarea{ resize:vertical; min-height:80px; }
+  .form-actions{ margin-top:6px; }
+  .form-note{ font-size:.78rem; color:var(--ink-soft); margin-top:12px; }
+  @media (max-width:820px){ .contact .wrap{ grid-template-columns:1fr; } }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--soil-deep); color:var(--on-soil-soft); padding:40px 0 28px; }
+  footer .wrap{ display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; align-items:center; }
+  footer .brand{ color:#FBF6E9; }
+  .foot-links{ display:flex; gap:20px; list-style:none; padding:0; margin:0; flex-wrap:wrap; }
+  .foot-links a{ text-decoration:none; font-size:.86rem; color:var(--on-soil-soft); }
+  .foot-links a:hover{ color:#FBF6E9; }
+  .foot-bottom{ margin-top:24px; font-size:.78rem; opacity:.7; text-align:center; }
+
+  /* ---------- whatsapp float ---------- */
+  .wa-float{
+    position:fixed; right:20px; bottom:20px; z-index:60;
+    display:flex; align-items:center; gap:10px;
+    background:#25D366; color:#0b2013; text-decoration:none;
+    padding:13px 18px 13px 14px; border-radius:40px;
+    box-shadow:0 8px 22px rgba(0,0,0,.28);
+    font-weight:600; font-size:.9rem;
+    transition:transform .15s ease;
+  }
+  .wa-float:hover{ transform:translateY(-2px); }
+  .wa-float svg{ width:22px; height:22px; flex:none; }
+  @media (max-width:520px){ .wa-float span{ display:none; } .wa-float{ padding:14px; border-radius:50%; } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="var(--toor)" stroke-width="2"/>
+        <path d="M20 9c3.5 4 6 7.6 6 11.3A6 6 0 1 1 14 20.3C14 16.6 16.5 13 20 9Z" fill="var(--toor)"/>
+      </svg>
+      Sai Agro &amp; Dall Mill
+    </a>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="tel:+917057206509">Call</a>
+      <a class="btn btn-primary" id="nav-wa" href="#" target="_blank" rel="noopener">WhatsApp Us</a>
+      <button class="navtoggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" style="color:var(--on-soil-soft)">Jamwadi · Hingoli · Maharashtra</p>
+        <h1>Dal, milled the way Marathwada has always trusted it.</h1>
+        <p class="lede">Sai Agro Products and Dall Mill cleans, mills and packs toor, chana, moong, masoor and urad dal in small, careful batches — for kitchens down the road and shops across the state.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" id="hero-wa" href="#" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3 0-.1-.2-.2-.4-.3Z" fill="currentColor"/><path d="M12 3.5A8.5 8.5 0 0 0 4.2 15.9L3 21l5.3-1.4A8.5 8.5 0 1 0 12 3.5Zm0 1.6a6.9 6.9 0 0 1 6.9 6.9c0 3.8-3.1 6.9-6.9 6.9-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.9.8.8-2.8-.2-.2A6.9 6.9 0 0 1 12 5.1Z" fill="currentColor"/></svg>
+            Chat on WhatsApp
+          </a>
+          <a class="btn btn-outline-soil" href="tel:+917057206509">Call +91 70572 06509</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>5</strong><span>dal varieties milled</span></div>
+          <div><strong>7 days</strong><span>open, 9 AM – 5 PM</span></div>
+          <div><strong>Retail<br>&amp; bulk</strong><span>supply for shops &amp; homes</span></div>
+        </div>
+      </div>
+
+      <svg class="hero-art" viewBox="0 0 360 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a burlap sack of dal grains">
+        <ellipse cx="180" cy="352" rx="120" ry="16" fill="#000" opacity="0.25"/>
+        <path d="M90 120 C86 100 96 80 118 72 L242 72 C264 80 274 100 270 120 L286 320 C288 336 276 350 258 350 L102 350 C84 350 72 336 74 320 Z" fill="#C9A25A"/>
+        <path d="M90 120 C86 100 96 80 118 72 L242 72 C264 80 274 100 270 120 Z" fill="#B98F49"/>
+        <path d="M110 74 L118 55 L242 55 L250 74" stroke="#8C6A34" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <g stroke="#8C6A34" stroke-width="2" opacity="0.5">
+          <path d="M96 150 L266 150"/><path d="M92 190 L272 190"/><path d="M90 230 L278 230"/><path d="M88 270 L282 270"/><path d="M86 310 L284 310"/>
+        </g>
+        <g>
+          <ellipse cx="150" cy="115" rx="9" ry="6" fill="#E2A33B"/>
+          <ellipse cx="172" cy="108" rx="9" ry="6" fill="#B14A2C" transform="rotate(20 172 108)"/>
+          <ellipse cx="196" cy="118" rx="9" ry="6" fill="#6B7A3A" transform="rotate(-10 196 118)"/>
+          <ellipse cx="220" cy="106" rx="9" ry="6" fill="#E2A33B" transform="rotate(12 220 106)"/>
+          <ellipse cx="132" cy="98" rx="8" ry="5.5" fill="#B14A2C" transform="rotate(-15 132 98)"/>
+          <ellipse cx="240" cy="96" rx="8" ry="5.5" fill="#241608" opacity="0.75" transform="rotate(18 240 96)"/>
+          <ellipse cx="185" cy="90" rx="8" ry="5.5" fill="#E2A33B" transform="rotate(-8 185 90)"/>
+          <ellipse cx="158" cy="86" rx="7" ry="5" fill="#6B7A3A" transform="rotate(24 158 86)"/>
+          <ellipse cx="208" cy="86" rx="7" ry="5" fill="#B14A2C" transform="rotate(-20 208 86)"/>
+        </g>
+      </svg>
+    </div>
+
+    <svg class="divider" viewBox="0 0 1160 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1160" height="26" fill="var(--husk)"/>
+      <path d="M0 0 C40 20 80 20 120 4 C160 -12 200 20 240 12 C280 4 320 22 360 10 C400 -2 440 20 480 12 C520 4 560 22 600 12 C640 2 680 20 720 10 C760 0 800 20 840 12 C880 4 920 20 960 10 C1000 0 1040 20 1080 12 C1110 6 1140 18 1160 12 L1160 0 L0 0 Z" fill="var(--soil-deep)"/>
+    </svg>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">About the mill</p>
+        <h2>A neighbourhood mill, run the honest way</h2>
+        <p>Tucked in Jamwadi on the edge of Hingoli, Sai Agro Products and Dall Mill takes raw pulses from Marathwada's fields and turns them into the dal that lands on your plate. Cleaning, de-husking, splitting and grading all happen on site, in batches small enough that nothing sits around longer than it should.</p>
+        <p>Whether you need a couple of kilos for the house or regular sacks for your shop, the process is the same: sort it properly, mill it carefully, pack it clean.</p>
+      </div>
+      <div class="about-figure">
+        <ul>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 3z" fill="var(--toor)"/></svg>
+            <span>Pulses sourced from farmers across the Hingoli–Marathwada belt.</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" fill="var(--moong)"/></svg>
+            <span>Cleaning, milling and grading done on the same premises — nothing outsourced.</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="var(--masoor)"/></svg>
+            <span>Open all seven days, 9 AM to 5 PM, for walk-ins and bulk orders alike.</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M12 4v16" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <span>Retail packs for households, wholesale quantities for kirana stores and traders.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow" style="color:var(--on-soil-soft)">What we mill</p>
+        <h2>Five dals, milled to order</h2>
+        <p class="lede">Every batch is cleaned and split fresh — tell us the dal and the quantity, and we'll let you know what's ready.</p>
+      </div>
+
+      <div class="grain-grid">
+        <div class="grain-card">
+          <div class="grain-swatch" style="background:#E2A33B"></div>
+          <h3>Toor Dal</h3>
+          <p class="latin">Arhar / Pigeon pea</p>
+          <p>The everyday dal of Marathwada kitchens — split and polished for a smooth, quick-cooking texture.</p>
+        </div>
+        <div class="grain-card">
+          <div class="grain-swatch" style="background:#C9942F"></div>
+          <h3>Chana Dal</h3>
+          <p class="latin">Split Bengal gram</p>
+          <p>Split from whole chana and cleaned of husk — holds its shape well for curries and snacks.</p>
+        </div>
+        <div class="grain-card">
+          <div class="grain-swatch" style="background:linear-gradient(135deg,#B8C36B,#6B7A3A)"></div>
+          <h3>Moong Dal</h3>
+          <p class="latin">Split green gram</p>
+          <p>Split and de-husked for a light, fast-cooking dal — a household staple across ages.</p>
+        </div>
+        <div class="grain-card">
+          <div class="grain-swatch" style="background:#B14A2C"></div>
+          <h3>Masoor Dal</h3>
+          <p class="latin">Split red lentil</p>
+          <p>Cleaned and split to a fine, even grade that cooks down quickly into a soft dal.</p>
+        </div>
+        <div class="grain-card">
+          <div class="grain-swatch" style="background:#241608"></div>
+          <h3>Urad Dal</h3>
+          <p class="latin">Split black gram</p>
+          <p>Split and washed, ready for dal makhani, idli-dosa batter, or a simple tempered dal.</p>
+        </div>
+        <div class="grain-card" style="justify-content:center; align-items:flex-start;">
+          <p style="color:var(--on-soil-soft); font-size:.92rem; margin-bottom:14px;">Looking for a specific quantity or a custom blend?</p>
+          <a class="btn btn-outline-soil" id="products-wa" href="#" target="_blank" rel="noopener">Ask on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it's made</p>
+        <h2>From sack to store, in five steps</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-step">
+          <div class="tl-num">1</div>
+          <h3>Sourcing</h3>
+          <p>Raw pulses bought directly from farmers and traders in the region.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">2</div>
+          <h3>Cleaning &amp; sorting</h3>
+          <p>Grain is sieved and sorted to remove stones, dust and broken pieces.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">3</div>
+          <h3>Milling</h3>
+          <p>Pulses are de-husked and split into dal on site.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">4</div>
+          <h3>Grading</h3>
+          <p>Split dal is graded for size and quality before packing.</p>
+        </div>
+        <div class="tl-step">
+          <div class="tl-num">5</div>
+          <h3>Packing &amp; dispatch</h3>
+          <p>Weighed and packed to order — for pickup, delivery, or bulk collection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <div class="wrap">
+      <div class="why-item">
+        <span class="num">01</span>
+        <h3>Milled in small batches</h3>
+        <p>Nothing is milled far ahead of when it's needed, so what you get has been sitting for days, not months.</p>
+      </div>
+      <div class="why-item">
+        <span class="num">02</span>
+        <h3>Local sourcing</h3>
+        <p>Pulses come from growers around Hingoli, keeping the supply chain short and traceable.</p>
+      </div>
+      <div class="why-item">
+        <span class="num">03</span>
+        <h3>Retail or wholesale</h3>
+        <p>A few kilos for the kitchen or full sacks for a shop — both are handled the same careful way.</p>
+      </div>
+      <div class="why-item">
+        <span class="num">04</span>
+        <h3>Easy to reach</h3>
+        <p>Call, WhatsApp, or walk in — the mill is open every day of the week, 9 to 5.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2>Place an order or ask a question</h2>
+        <div class="contact-card">
+          <div class="contact-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12Z" stroke="var(--masoor)" stroke-width="1.8"/><circle cx="12" cy="9" r="2.6" stroke="var(--masoor)" stroke-width="1.8"/></svg>
+            <div>
+              <h3>Address</h3>
+              <p>Sai Agro Products and Dall Mill, Jamwadi, Hingoli, Maharashtra 431513</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 14l5 2v4a2 2 0 0 1-2 2C9.6 22 2 14.4 2 7a2 2 0 0 1 2-2Z" stroke="var(--moong)" stroke-width="1.8"/></svg>
+            <div>
+              <h3>Phone / WhatsApp</h3>
+              <p><a href="tel:+917057206509">+91 70572 06509</a></p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--toor)" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="var(--toor)" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div>
+              <h3>Hours</h3>
+              <p>Open all week · 9:00 AM – 5:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-frame" style="margin-top:26px;">
+          <iframe
+            src="https://www.google.com/maps?q=Sai+Agro+Products+and+Dall+Mill,+Jamwadi,+Hingoli,+Maharashtra+431513&z=15&output=embed"
+            title="Map location of Sai Agro Products and Dall Mill"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Send an enquiry on WhatsApp</h3>
+        <p class="sub">Fill this in and it opens WhatsApp with your message ready to send — nothing is stored here.</p>
+        <form id="enquiry-form">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input type="text" id="f-name" placeholder="e.g. Ramesh Patil" required>
+          </div>
+          <div class="field">
+            <label for="f-product">Dal</label>
+            <select id="f-product">
+              <option>Toor Dal</option>
+              <option>Chana Dal</option>
+              <option>Moong Dal</option>
+              <option>Masoor Dal</option>
+              <option>Urad Dal</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-qty">Quantity needed</label>
+            <input type="text" id="f-qty" placeholder="e.g. 25 kg, or one sack">
+          </div>
+          <div class="field">
+            <label for="f-msg">Anything else</label>
+            <textarea id="f-msg" placeholder="Delivery, pickup date, other questions..."></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3 0-.1-.2-.2-.4-.3Z" fill="currentColor"/><path d="M12 3.5A8.5 8.5 0 0 0 4.2 15.9L3 21l5.3-1.4A8.5 8.5 0 1 0 12 3.5Zm0 1.6a6.9 6.9 0 0 1 6.9 6.9c0 3.8-3.1 6.9-6.9 6.9-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.9.8.8-2.8-.2-.2A6.9 6.9 0 0 1 12 5.1Z" fill="currentColor"/></svg>
+              Continue on WhatsApp
+            </button>
+          </div>
+          <p class="form-note">This opens a WhatsApp chat to +91 70572 06509 with your details pre-filled — you review and send it yourself.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top">Sai Agro Products and Dall Mill</a>
+    <ul class="foot-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="tel:+917057206509">+91 70572 06509</a></li>
+    </ul>
+  </div>
+  <p class="foot-bottom">Jamwadi, Hingoli, Maharashtra 431513 · Open daily, 9 AM – 5 PM</p>
+</footer>
+
+<a class="wa-float" id="float-wa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3 0-.1-.2-.2-.4-.3Z" fill="currentColor"/><path d="M12 3.5A8.5 8.5 0 0 0 4.2 15.9L3 21l5.3-1.4A8.5 8.5 0 1 0 12 3.5Zm0 1.6a6.9 6.9 0 0 1 6.9 6.9c0 3.8-3.1 6.9-6.9 6.9-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.9.8.8-2.8-.2-.2A6.9 6.9 0 0 1 12 5.1Z" fill="currentColor"/></svg>
+  <span>Chat with us</span>
+</a>
+
+<script>
+(function(){
+  var PHONE = "917057206509";
+
+  function waLink(text){
+    return "https://wa.me/" + PHONE + (text ? ("?text=" + encodeURIComponent(text)) : "");
+  }
+
+  var defaultMsg = "Hello Sai Agro Products and Dall Mill, I'd like to know more about your dal.";
+  ["nav-wa","hero-wa","products-wa","float-wa"].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.setAttribute("href", waLink(defaultMsg));
+  });
+
+  var navtoggle = document.getElementById("navtoggle");
+  if(navtoggle){
+    navtoggle.addEventListener("click", function(){
+      var open = document.body.classList.toggle("nav-open");
+      navtoggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.querySelectorAll(".navlinks a").forEach(function(a){
+      a.addEventListener("click", function(){
+        document.body.classList.remove("nav-open");
+        navtoggle.setAttribute("aria-expanded","false");
+      });
+    });
+  }
+
+  var form = document.getElementById("enquiry-form");
+  if(form){
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var name = document.getElementById("f-name").value.trim();
+      var product = document.getElementById("f-product").value;
+      var qty = document.getElementById("f-qty").value.trim();
+      var msg = document.getElementById("f-msg").value.trim();
+
+      var lines = [
+        "Hello Sai Agro Products and Dall Mill,",
+        "I'm " + (name || "a customer") + " and I'd like to enquire about " + product + (qty ? (" — quantity: " + qty) : "") + "."
+      ];
+      if(msg) lines.push(msg);
+
+      window.open(waLink(lines.join(" ")), "_blank", "noopener");
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
